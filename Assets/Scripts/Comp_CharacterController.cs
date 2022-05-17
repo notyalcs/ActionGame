@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Comp_CharacterController : MonoBehaviour
 {
+    [Header("External Allow Move")]
+    [SerializeField] public bool _canMove = true;
 
     [Header("Speed (Strafing, Normal, Sprinting")]
     [SerializeField] private Vector3 _moveSpeed = Vector3.zero;
+    [SerializeField] private float _attackMovementLimiter = 0.2f;
 
     [Header("Sharpness")]
     [SerializeField] private float _rotationSharpness = 10.0f;
@@ -78,6 +81,7 @@ public class Comp_CharacterController : MonoBehaviour
 
         // Velocity
         _newVelocity = moveInputVectorOriented * _newSpeed;
+        if (!_canMove) { _newVelocity *= _attackMovementLimiter; }
         transform.Translate(_newVelocity * Time.deltaTime, Space.World);
 
         // Rotation
@@ -93,6 +97,8 @@ public class Comp_CharacterController : MonoBehaviour
             _newRotation = Quaternion.Slerp(transform.rotation, _targetRotation, Time.deltaTime * _rotationSharpness);
             transform.rotation = _newRotation;
         }
+
+        if (!_canMove) { return; }
 
         // Animation
         if (_strafing) {

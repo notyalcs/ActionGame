@@ -1120,6 +1120,10 @@ PrefabInstance:
       propertyPath: _moveSpeed.z
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 5661745990080924763, guid: b960c9bb0b72d5d4791be5af7113e6a8, type: 3}
+      propertyPath: _attackMovementLimiter
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5661745990080924764, guid: b960c9bb0b72d5d4791be5af7113e6a8, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1168,6 +1172,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6034772449901423910, guid: b960c9bb0b72d5d4791be5af7113e6a8, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7063406418403408860, guid: b960c9bb0b72d5d4791be5af7113e6a8, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1203,3 +1211,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5176547797449599617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5176547797449599610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27650ccf890585c4f94a26885e3d8a03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackRate: 1.5
