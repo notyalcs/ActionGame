@@ -9,8 +9,8 @@ public class Comp_AttackChain3 : StateMachineBehaviour
     [SerializeField] private Comp_CharacterController _characterController = null;
 
     [Header("Movement")]
-    [SerializeField] private float _moveDistance = 2.0f;
-    [SerializeField] private float _moveSpeed = 10f;
+    [SerializeField] private float _moveDistance = 1.75f;
+    [SerializeField] private float _moveSpeed = 15;
 
     private Vector3 _startPosition;
     private Vector3 _endPosition;

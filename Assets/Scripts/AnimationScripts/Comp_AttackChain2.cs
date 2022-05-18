@@ -10,7 +10,7 @@ public class Comp_AttackChain2 : StateMachineBehaviour
 
     [Header("Movement")]
     [SerializeField] private float _moveDistance = 0.5f;
-    [SerializeField] private float _moveSpeed = 10f;
+    [SerializeField] private float _moveSpeed = 20f;
 
     private Vector3 _startPosition;
     private Vector3 _endPosition;
