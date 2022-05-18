@@ -24,6 +24,9 @@ public class Comp_CharacterController : MonoBehaviour
     private LayerMask _layerMask;
     private Collider[] _obstructions = new Collider[8];
 
+    public bool _rolling;
+    public bool _attacking;
+
     private bool _strafing;
     private bool _sprinting;
     private float _strafeParameter;
@@ -69,6 +72,13 @@ public class Comp_CharacterController : MonoBehaviour
             _sprinting = Input.GetButton("Sprint") && (moveInputVector != Vector3.zero);
         }
 
+        if (!_rolling && Input.GetButtonDown("Sprint")) {
+            _cameraController.ToggleLockOn(false);
+            _rolling = true;
+            _canMove = false;
+            _animator.SetTrigger("Roll");
+        }
+
         if (_sprinting) {
             _cameraController.ToggleLockOn(false);
         }
@@ -92,7 +102,7 @@ public class Comp_CharacterController : MonoBehaviour
             _targetRotation = Quaternion.LookRotation(planarToTarget);
             _newRotation = Quaternion.Slerp(transform.rotation, _targetRotation, Time.deltaTime * _rotationSharpness);
             transform.rotation = _newRotation;
-        } else if (_targetSpeed != 0) {
+        } else if (_targetSpeed != 0 && _canMove) {
             _targetRotation = Quaternion.LookRotation(moveInputVectorOriented);
             _newRotation = Quaternion.Slerp(transform.rotation, _targetRotation, Time.deltaTime * _rotationSharpness);
             transform.rotation = _newRotation;
