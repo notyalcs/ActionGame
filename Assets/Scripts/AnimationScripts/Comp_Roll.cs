@@ -21,6 +21,7 @@ public class Comp_Roll : StateMachineBehaviour
         }
 
         _characterController._canMove = false;
+        _characterController.Rolling = true;
 
         animator.SetFloat("StrafingX", 0);
         animator.SetFloat("StrafingZ", 0);
@@ -36,7 +37,7 @@ public class Comp_Roll : StateMachineBehaviour
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex) {
         _characterController._canMove = true;
-        _characterController._rolling = false;
+        _characterController.Rolling = false;
 
         animator.SetFloat("StrafingZ", 4);
     }

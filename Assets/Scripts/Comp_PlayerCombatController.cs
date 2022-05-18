@@ -5,6 +5,9 @@ using UnityEngine;
 public class Comp_PlayerCombatController : MonoBehaviour
 {
 
+    [Header("External Links")]
+    [SerializeField] private Comp_CharacterController _characterController;
+
     [Header("Attack Info")]
     [SerializeField] private float _attackRate = 2.0f;
 
@@ -16,9 +19,9 @@ public class Comp_PlayerCombatController : MonoBehaviour
     }
 
     private void Update() {
-        if (_animator.GetBool("Attack2") || _animator.GetBool("Attack3")) { return; }
+        //if (_animator.GetBool("Attack2") || _animator.GetBool("Attack3")) { return; }
 
-        if (Time.time >= _nextAttackTime) {
+        if (!_characterController.Attacking && Time.time >= _nextAttackTime) {
             if (Input.GetButtonDown("Fire1")) {
                 Attack();
                 _nextAttackTime = Time.time + 1.0f / _attackRate;

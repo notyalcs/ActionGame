@@ -24,6 +24,7 @@ public class Comp_AttackChain : StateMachineBehaviour
         }
 
         _characterController._canMove = false;
+        _characterController.Attacking = true;
         _chain = false;
 
         animator.SetFloat("StrafingX", 0);

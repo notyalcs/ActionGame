@@ -14,6 +14,7 @@ public class Comp_ResetAttack : StateMachineBehaviour
         }
 
         _characterController._canMove = true;
+        _characterController.Attacking = false;
 
         animator.SetBool("Attack2", false);
         animator.SetBool("Attack3", false);
